@@ -35,12 +35,12 @@ D_left = np.abs(librosa.stft(y, center=False))
 
 # Use a shorter hop length
 
-D_short = np.abs(librosa.stft(y, hop_length=64))
+D_short = np.abs(librosa.stft(y, hop_length=256))
 
 # Display a spectrogram
 
 
-librosa.display.specshow(D, y_axis='log', x_axis='time')
+librosa.display.specshow(D, y_axis='log', x_axis='time', sr=22050)
 plt.title('Power spectrogram')
 plt.colorbar(format='%+2.0f dB')
 plt.tight_layout()
