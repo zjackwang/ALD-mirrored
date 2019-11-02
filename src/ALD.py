@@ -43,10 +43,13 @@ class ALD:
         self.test_x = noisy_data_test
         self.test_y = clean_data_test
 
-    def train(self):
+        constructModel()
+
+    def constructModel(self):
         model = Sequential()
 
-        model.add(Conv2D(self.filters, self.kernel_size, padding=self.padding, input_shape=(self.frequency_bins, self.frames, 1)))
+        model.add(Conv2D(self.filters, self.kernel_size, padding=self.padding,
+                         input_shape=(self.frequency_bins, self.frames, 1)))
         model.add(LeakyReLU())
         model.add(Conv2D(self.filters, self.kernel_size, padding=self.padding))
         model.add(LeakyReLU())
@@ -65,6 +68,8 @@ class ALD:
         model.add(LeakyReLU())
         model.add(Dropout(.25))
         model.add(Dense(513))
+
+    def train(self):
 
         sgd = SGD(self.learning_rate, decay=1e-6, momentum=.9, nesterov=true)
         model.compile(optimizer=sgd,
