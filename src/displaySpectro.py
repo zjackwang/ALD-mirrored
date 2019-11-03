@@ -1,20 +1,17 @@
 import librosa
-import np
+import numpy as np
 
 
 import matplotlib.pyplot as plt
 import librosa.display
 
 
-filename = 'SlideClean.wav'
-#"C:\Users\Reece\Documents\GitHub\ALD\ALD\src\FrenchClean.mp3"
-
-#fname = librosa.util.find_files('D:/Sound files/Clean', ext='.mp3', recurse=True)
-#print(fname)
+filename = 'sounds/FrenchCleanBegin.wav'
 
 y, sr = librosa.load(filename)
 D = np.abs(librosa.stft(y))
 D
+print(D)
 # array([[2.58028018e-03, 4.32422794e-02, 6.61255598e-01, ...,
 # 6.82710262e-04, 2.51654536e-04, 7.23036574e-05],
 # [2.49403086e-03, 5.15930466e-02, 6.00107312e-01, ...,
