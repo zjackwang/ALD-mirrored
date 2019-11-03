@@ -1,18 +1,12 @@
-
-
+from os import path
+from pydub import AudioSegment
 
 def mp3towav(srcMP3File, destWavFile):
-    from os import path
-    from pydub import AudioSegment
-
-    # files
-    src = "transcript.mp3"
-    dst = "test.wav"
 
     # convert wav to mp3
-    sound = AudioSegment.from_mp3(src)
-    sound.export(dst, format="wav")
-
+    sound = AudioSegment.from_mp3(srcMP3File)
+    sound.export(destWavFile, format="wav")
+    
     #https://pythonbasics.org/convert-mp3-to-wav/
 
 def saveSound(sound, wavFile):
@@ -28,3 +22,4 @@ def playWavFile(wavFile):
 
 
 
+mp3towav("sounds/FrenchClean.mp3", "sounds/FrenchClean.wav")
