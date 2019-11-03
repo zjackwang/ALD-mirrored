@@ -43,7 +43,7 @@ class ALD:
         self.test_x = noisy_data_test
         self.test_y = clean_data_test
 
-        constructModel()
+        self.model = constructModel()
 
     def constructModel(self):
         model = Sequential()
@@ -69,14 +69,15 @@ class ALD:
         model.add(Dropout(.25))
         model.add(Dense(513))
 
+        return model
     def train(self):
 
         sgd = SGD(self.learning_rate, decay=1e-6, momentum=.9, nesterov=true)
-        model.compile(optimizer=sgd,
+        self.model.compile(optimizer=sgd,
                       loss='binary_crossentropy',
                       metric=['accuracy'])
 
-        history = model.fit(self.train_x,
+        history = self.model.fit(self.train_x,
                             self.train_y,
                             batch_size=self.batch_size,
                             epochs=self.training_epochs)
