@@ -12,7 +12,7 @@ def mp3towav(srcMP3File, destWavFile):
     # convert wav to mp3
     sound = AudioSegment.from_mp3(src)
     sound.export(dst, format="wav")
-    
+
     #https://pythonbasics.org/convert-mp3-to-wav/
 
 def saveSound(sound, wavFile):
