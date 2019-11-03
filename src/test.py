@@ -4,7 +4,7 @@ def playWavFile(wavFile):
 
 
 
+import os
 
-
-
-playWavFile("sounds/FrenchClean.wav")
+os.system("aplay )
+#playWavFile("sounds/FrenchClean.wav")
